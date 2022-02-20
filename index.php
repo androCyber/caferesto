@@ -1,3 +1,7 @@
+<?php
+require_once ("functions/functions.php");
+
+?>
 <!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -15,6 +19,8 @@
   #masa {
           height: 80px;
           margin: 12px;
+          font-size: 35px;
+          border-radius: 10px;
         }
     </style>
     
@@ -22,14 +28,19 @@
   <body>
           <div class="container-fluid "> <!-- Ana div başlangıç-->
               <div class="row table-dark" id="rows"> <!-- Üst Bilgi Bannerı başlangıç-->
-               <div class="col-md-3 border-right">s</div>
-               <div class="col-md-3 border-right">s</div>
-               <div class="col-md-3 border-right">s</div>
-               <div class="col-md-3 border-right">s</div>
+               <div class="col-md-3 border-right">Toplam Sipariş: <a class="text-warning" >10</a> </div>
+               <div class="col-md-3 border-right">Doluluk Oranı: <a class="text-warning" >10</a> </div>
+               <div class="col-md-3 border-right">Toplam Masa: <a class="text-warning" >10</a> </div>
+               <div class="col-md-3 border-right">Tarih: <a class="text-warning" >10</a> </div>
               </div> <!-- Üst Bilgi Bannerı bitiş-->
-              
+
                         <div class="row"><!-- Masa alanı başlangıç-->
-                        <div class="col-md-1 border" id="masa">s</div>
+                        <div class="col-md-1 border border-dark  bg-danger mx-auto p-2 text-center text-white" id="masa">15</div>
+                        <div class="col-md-1 border border-dark  bg-success mx-auto p-2 text-center text-white" id="masa">15</div>
+                        <div class="col-md-1 border mx-auto p-2 text-center" id="masa">s</div>
+                        <div class="col-md-1 border mx-auto p-2 text-center" id="masa">s</div>
+                        <div class="col-md-1 border mx-auto p-2 text-center" id="masa">s</div>
+                        <div class="col-md-1 border mx-auto p-2 text-center" id="masa">s</div>
                         </div> <!-- Masa alanı bitiş -->
 
           </div><!-- Ana div bitiş-->
