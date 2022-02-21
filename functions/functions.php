@@ -4,7 +4,7 @@ $db->set_charset("utf8");
 
 class sistem {
 
-   public static function masaCek($dv){
+   function masaCek($dv){
 
 
                     $masalar="Select * From Masalar";
