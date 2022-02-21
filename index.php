@@ -1,5 +1,6 @@
 <?php
 require_once ("functions/functions.php");
+$sistem = new sistem;
 
 ?>
 <!DOCTYPE html>
@@ -35,12 +36,12 @@ require_once ("functions/functions.php");
               </div> <!-- Üst Bilgi Bannerı bitiş-->
 
                         <div class="row"><!-- Masa alanı başlangıç-->
-                        <div class="col-md-1 border border-dark  bg-danger mx-auto p-2 text-center text-white" id="masa">15</div>
-                        <div class="col-md-1 border border-dark  bg-success mx-auto p-2 text-center text-white" id="masa">15</div>
-                        <div class="col-md-1 border mx-auto p-2 text-center" id="masa">s</div>
-                        <div class="col-md-1 border mx-auto p-2 text-center" id="masa">s</div>
-                        <div class="col-md-1 border mx-auto p-2 text-center" id="masa">s</div>
-                        <div class="col-md-1 border mx-auto p-2 text-center" id="masa">s</div>
+                        <?php 
+                        
+                        $sistem->masaCek($db);
+                        
+                        ?>
+                       
                         </div> <!-- Masa alanı bitiş -->
 
           </div><!-- Ana div bitiş-->
