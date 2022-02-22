@@ -42,7 +42,14 @@ class sistem {
 
     }
 
+            function masaToplam($dv){
 
+                
+                echo $this->myQuery($dv,"Select * From masalar",1)->num_rows;
+
+                
+
+            }
 
 }
 ?>

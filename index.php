@@ -31,7 +31,7 @@ $sistem = new sistem;
               <div class="row table-dark" id="rows"> <!-- Üst Bilgi Bannerı başlangıç-->
                <div class="col-md-3 border-right">Toplam Sipariş: <a class="text-warning" >10</a> </div>
                <div class="col-md-3 border-right">Doluluk Oranı: <a class="text-warning" >10</a> </div>
-               <div class="col-md-3 border-right">Toplam Masa: <a class="text-warning" >10</a> </div>
+               <div class="col-md-3 border-right">Toplam Masa: <a class="text-warning" ><?php $sistem-> masaToplam($db);?></a> </div>
                <div class="col-md-3 border-right">Tarih: <a class="text-warning" >10</a> </div>
               </div> <!-- Üst Bilgi Bannerı bitiş-->
 
