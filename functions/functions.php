@@ -27,8 +27,14 @@ class sistem {
                     $masaRSLT=$this->myQuery($dv,$masalar,1);
                     while($result=$masaRSLT->fetch_assoc()) :
 
-                    echo ' <div class="col-md-2 col-sm-6 mr-2 mx-auto p-2 text-center text-white" >
-                    <div class="bg-danger" id="masa">'.$result['ad'].'</div>  
+                        $orders='Select * From anliksiparis where masaid='.$result['id'];
+                        
+                    //ternary if Masa dolu mu boş mu
+                        $this->myQuery($dv,$orders,1)->num_rows==0 ? $tColor="danger":   $tColor="success";
+
+                    echo ' <div id="mas" class="col-md-2 col-sm-6 mr-2 mx-auto p-2 text-center text-white" >
+                    <a href="masa_detay.php?masaId='.$result['id'].'">
+                    <div class="bg-'.$tColor.'" id="masa">'.$result['ad'].'</div>  </a>
                     
                     </div>';
                   

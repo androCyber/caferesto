@@ -23,6 +23,12 @@ $sistem = new sistem;
           font-size: 35px;
           border-radius: 10px;
         }
+#mas a:link , #mas a:visited{
+  text-decoration: none;
+  color:white;
+
+
+}        
     </style>
     
   </head>
