@@ -7,17 +7,25 @@ class sistem {
    function masaCek($dv){
 
 
-                    $masalar="Select * From Masalar";
+                    $masalar="Select * From masalar";
                     $masaS=$dv->prepare($masalar);
                     $masaS->execute();
                     $masaRSLT=$masaS->get_result();
-                    $result=$masaRSLT->fetch_assoc();
-
+                   
                     while($result=$masaRSLT->fetch_assoc()) :
 
-                    echo '<div class="col-md-1 border border-dark  bg-danger mx-auto p-2 text-center text-white" id="masa">'.$result['ad'].'</div>';
-
-                    endwhile;
+                    echo ' <div class="col-md-2 col-sm-6 mr-2 mx-auto p-2 text-center text-white" >
+                    <div class="bg-danger" id="masa">'.$result['ad'].'</div>  
+                    
+                    </div>';
+                  
+                  
+                  
+                 
+                  
+                   
+                
+                endwhile;
 
     }
 

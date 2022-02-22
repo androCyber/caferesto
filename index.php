@@ -41,6 +41,8 @@ $sistem = new sistem;
                         $sistem->masaCek($db);
                         
                         ?>
+
+
                        
                         </div> <!-- Masa alanı bitiş -->
 
