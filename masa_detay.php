@@ -1,6 +1,7 @@
 <?php
 require_once ("functions/functions.php");
 $masaDetay = new sistem;
+@$masaId=$_GET['masaId'];
 
 ?>
 <!DOCTYPE html>
@@ -20,7 +21,7 @@ $masaDetay = new sistem;
           <div class="container-fluid "> <!-- Ana div başlangıç-->
 
 <?php 
-@$masaId=$_GET['masaId'];
+
 if ($masaId !=""):
 $result= $masaDetay->getTDetail($db,$masaId);
 $tInfo=$result->fetch_assoc();
@@ -31,9 +32,12 @@ $tInfo=$result->fetch_assoc();
                           <div class="col-md-2 border-right border-dark">
                                 <div class="row">
                                     <div class="col-md-12 border border-bottom border-info bg-info" style="min-height:100px"><?php echo $tInfo['ad']?></div>
-                                    <div class="col-md-12 border border-bottom border-info">s</div>
-                                    <div class="col-md-12 border border-bottom border-info">s</div>
-                                    <div class="col-md-12 border border-bottom border-info">s</div>
+
+                                    <div id="veri">
+
+
+                                    </div>
+                                   
                                 </div>
 
 
@@ -57,5 +61,19 @@ endif;
 
 
 	<script src="assets/js/jquery.js"></script>
+  <script>
+$(document).ready(function(){
+
+let id=<?php echo $masaId; ?>
+
+  $("#veri").load("islemler.php?islem=goster&id="+id);
+
+
+}) ;
+
+
+
+
+  </script>
   </body>
 </html>
