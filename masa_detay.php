@@ -12,6 +12,7 @@ $masaDetay = new sistem;
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/css/bootsrap.css">
     <title>CafeResto Projesi</title>
+    
     <style>
       
     </style>
@@ -47,7 +48,7 @@ $tInfo=$result->fetch_assoc();
                               <form id="dataForm">
 
                                       <input type="text" name="urunId"/>
-                                      <input type="text" name="adet"/>
+                                      <input type="text" name="miktar"/>
                                       <input type="text" hidden name="masaId" value="<?php echo $masaId ;?>"/>
                                       <input type="button" id="btn" value="EKLE"/>
                               </form>
@@ -69,20 +70,22 @@ endif;
           </div><!-- Ana div bitiş-->
 
 
-	<script src="assets/js/jquery.js"></script>
+	
+  </body>
+  <script src="assets/js/jquery.js"></script>
   <script>
 $(document).ready(function(){
 
 let id=<?php echo $masaId; ?>
 
-  $("#veri").load("islemler.php?islem=goster&id="+id);
-  $("#btn").click(function(){
+$("#veri").load("islemler.php?islem=goster&id="+id);
+$("#btn").click(function(){
 
           $.ajax({
                     type:"POST",
                     url:'islemler.php?islem=ekle',
-                    data: $("dataForm").serialize(),
-                    success: function(response)
+                    data: $('#dataForm').serialize(),
+                    success: function(responseData)
                     {
                       $("#veri").load("islemler.php?islem=goster&id="+id);
                     }
@@ -93,7 +96,7 @@ let id=<?php echo $masaId; ?>
 
 
 
-          })
+          });
 
 
 
@@ -106,5 +109,4 @@ let id=<?php echo $masaId; ?>
 
 
   </script>
-  </body>
 </html>
