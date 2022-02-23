@@ -28,7 +28,7 @@ class sistem {
                     while($result=$masaRSLT->fetch_assoc()) :
 
                         $orders='Select * From anliksiparis where masaid='.$result['id'];
-                        
+
                     //ternary if Masa dolu mu boş mu
                         $this->myQuery($dv,$orders,1)->num_rows==0 ? $tColor="danger":   $tColor="success";
 
@@ -47,7 +47,7 @@ class sistem {
                 endwhile;
 
     }
-
+            //Masa sayısını veren fonksiyon
             function masaToplam($dv){
 
                 
@@ -56,6 +56,20 @@ class sistem {
                 
 
             }
+
+            //Masa Detayını gösteren fonksiyon
+
+            function getTDetail($dv,$id){
+
+                $detaySorgu="Select * From masalar where id=$id";
+                return $this->myQuery($dv,$detaySorgu,1);
+
+            }
+
+
+
+
+
 
 }
 ?>
