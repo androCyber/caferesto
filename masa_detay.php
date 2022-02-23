@@ -43,7 +43,16 @@ $tInfo=$result->fetch_assoc();
 
 
                           </div>
-                          <div class="col-md-10"></div>
+                          <div class="col-md-10">
+                              <form id="dataForm">
+
+                                      <input type="text" name="urunId"/>
+                                      <input type="text" name="adet"/>
+                                      <input type="text" hidden name="masaId" value="<?php echo $masaId ;?>"/>
+                                      <input type="button" id="btn" value="EKLE"/>
+                              </form>
+
+                          </div>
 
 
            </div>
@@ -67,6 +76,28 @@ $(document).ready(function(){
 let id=<?php echo $masaId; ?>
 
   $("#veri").load("islemler.php?islem=goster&id="+id);
+  $("#btn").click(function(){
+
+          $.ajax({
+                    type:"POST",
+                    url:'islemler.php?islem=ekle',
+                    data: $("dataForm").serialize(),
+                    success: function(response)
+                    {
+                      $("#veri").load("islemler.php?islem=goster&id="+id);
+                    }
+
+
+
+
+
+
+
+          })
+
+
+
+  });
 
 
 }) ;

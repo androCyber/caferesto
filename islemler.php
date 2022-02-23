@@ -25,6 +25,16 @@ $id=$_GET['id'];
     break;
   
   case "ekle":
+    $masaId=$_POST['masaId'];
+    $urunId=$_POST['urunId'];
+    $adet=$_POST['adet'];
+
+              $siparisEkle="Insert into anliksiaparis(masaid,urunid,urunad,urunfiyat,adet) Values ($masaId,$urunId,'Fıstıklı Baklava',120, $adet)";
+              $siparisEkleRSLT=$db->prepare($siparisEkle);
+              $siparisEkleRSLT->execute();
+              echo "Ekleme Yapıldı";
+    
+    
     break;
   endswitch;    
 ?>
