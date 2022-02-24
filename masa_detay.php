@@ -48,17 +48,12 @@ $tInfo=$result->fetch_assoc();
                           <div class="col-md-1 border-right">
                              
                           </div>
-                          <div class="col-md-7">
-                              <form id="dataForm">
-                                      <input type="text" name="urunId"/>
-                                      <input type="text" name="miktar"/>
-                                      <input type="text" hidden name="masaId" value="<?php echo $masaId ;?>"/>
-                                      <input type="button" id="btn" value="EKLE"/>
-                              </form>
+                          <div class="col-md-7" id="urunler">
+                              
 
                           </div>
                           <!-- KATEGORİLER Başlangıç-->
-                          <div class="col-md-2 border-left">
+                          <div class="col-md-2 border-left" id="categories">
 
                           <?php $masaDetay->productGroup($db);?>
                               
@@ -97,14 +92,7 @@ $("#btn").click(function(){
                     {
                       $("#veri").load("islemler.php?islem=goster&id="+id);
                     }
-
-
-
-
-
-
-
-          });
+ });
 
 
 
@@ -113,7 +101,15 @@ $("#btn").click(function(){
 
 }) ;
 
+$("#categories a").click(function(){
+let sectionId=$(this).attr('sectionId');
+$("#urunler").load("islemler.php?islem=urun&catid="+ sectionId).fadeIn();
 
+
+
+
+
+})
 
 
   </script>

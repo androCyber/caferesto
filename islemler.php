@@ -36,5 +36,30 @@ $id=$_GET['id'];
     
     
     break;
+case "urun":/*Masa detay sayfasında seçilen kategoriye göre ürünler listeleniyor...*/ 
+
+    $catid=htmlspecialchars($_GET['catid']);
+    $query="Select * From urunler where katid=$catid";
+    $queryPrep=$db->prepare($query);
+    $queryPrep->execute();
+    $queryResult= $queryPrep->get_result();
+
+    while( $productResult=$queryResult->fetch_assoc()):
+
+      echo "Gelen Ürün Ad : ".$productResult['ad']."</br>";
+
+      echo "Gelen Ürün Fiyat : ".$productResult['fiyat']."</br>";
+
+      
+     endwhile;
+
+
+
+
+
+  break;
+
+
+
   endswitch;    
 ?>
