@@ -45,11 +45,49 @@ $tInfo=$result->fetch_assoc();
 
                           </div>
 
-                          <div class="col-md-1 border-right">
-                             
-                          </div>
-                          <div class="col-md-7" id="urunler">
+                          <div class="col-md-8" style="background-color: #F9F9F9;">
                               
+                                                <div class="row"><form id="dataForm">
+                                                            <div class="col-md-12" id="urunler" style="min-height:600px;">
+
+
+
+                                                            </div>
+
+                                                </div>
+                                                <div class="row">
+                                                            <div class="col-md-12">
+                                                                  <div class="row">
+                                                                        <div class="col-md-6" >
+
+
+                                                                              <input type="hidden" name="masaId" value="<?php echo $tInfo['id']; ?>" />
+                                                                               <input type="button" id="btn" value="EKLE" class="btn btn-success btn-block mt-4"/>
+                                                            
+                                                                           </div>
+
+                                                                          <div class="col-md-6">
+                                                                            <?php for ($i=1;$i<=13;$i++):
+                                                                              
+                                                                              echo '<label class="btn btn-success m-2"><input name="miktar" type="radio" value="'.$i.'"/>'.$i.'</label>';
+                                                                            endfor;
+                                                                            ?>
+
+                                                                        
+
+                                                                        
+
+                                                                          </div>
+
+                                                                  </div>
+
+                                                            </div>
+
+                                                </div>
+
+
+
+
 
                           </div>
                           <!-- KATEGORİLER Başlangıç-->

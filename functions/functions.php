@@ -75,7 +75,7 @@ class sistem {
 
                     while($result=$catQueryRspns->fetch_assoc()):
 
-                       echo  '<a class="btn btn-warning" sectionId="'.$result['id'].'">'.$result['ad'].'</a></br>';
+                       echo  '<a class="btn btn-dark mt-2 text-white" sectionId="'.$result['id'].'">'.$result['ad'].'</a></br>';
 
                     endwhile;
 
