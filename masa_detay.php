@@ -1,7 +1,7 @@
 <?php
 require_once ("functions/functions.php");
 $masaDetay = new sistem;
-@$masaId=$_GET['masaId'];
+@$masaId=htmlspecialchars($_GET['masaId']);
 
 ?>
 <!DOCTYPE html>
@@ -32,7 +32,7 @@ $tInfo=$result->fetch_assoc();
            <div class="row border border-dark" style="min-height:700px;">
                           <div class="col-md-2 border-right border-dark">
                                 <div class="row">
-                                    <div class="col-md-12 border border-bottom border-info bg-info" style="min-height:100px"><?php echo $tInfo['ad']?></div>
+                                    <div class="col-md-12 border border-bottom border-info bg-info mx-auto p-4 text-center" style="min-height:100px"><?php echo $tInfo['ad']?></div>
 
                                     <div id="veri">
 
@@ -44,9 +44,12 @@ $tInfo=$result->fetch_assoc();
 
 
                           </div>
-                          <div class="col-md-10">
-                              <form id="dataForm">
 
+                          <div class="col-md-1 border-right">
+                             
+                          </div>
+                          <div class="col-md-7">
+                              <form id="dataForm">
                                       <input type="text" name="urunId"/>
                                       <input type="text" name="miktar"/>
                                       <input type="text" hidden name="masaId" value="<?php echo $masaId ;?>"/>
@@ -54,8 +57,13 @@ $tInfo=$result->fetch_assoc();
                               </form>
 
                           </div>
+                          <!-- KATEGORİLER Başlangıç-->
+                          <div class="col-md-2 border-left">
 
-
+                          <?php $masaDetay->productGroup($db);?>
+                              
+                          </div>
+                        <!-- KATEGORİLER Bitiş-->
            </div>
 
 <?php 

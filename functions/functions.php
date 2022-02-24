@@ -66,7 +66,23 @@ class sistem {
 
             }
 
+            //Ürün Gruplarının Listelenmesi
 
+            function productGroup($db){
+
+                $catQuery="Select * From kategori";
+                $catQueryRspns=$this->myQuery($db,$catQuery,1);
+
+                    while($result=$catQueryRspns->fetch_assoc()):
+
+                       echo  '<a class="btn btn-warning">'.$result['ad'] .'</a>';
+
+                    endwhile;
+
+
+
+
+            }
 
 
 
