@@ -33,12 +33,13 @@ $tInfo=$result->fetch_assoc();
                           <div class="col-md-2 border-right border-dark">
                                 <div class="row">
                                     <div class="col-md-12 border border-bottom border-info bg-info mx-auto p-4 text-center" style="min-height:100px"><?php echo $tInfo['ad']?></div>
-
+                                  <!-- Anlık Sipariş Alanı Başlangıç -->
                                     <div id="veri">
-
-
                                     </div>
-                                   
+                                   <!-- Anlık Sipariş Alanı Bitiş -->
+                                   <div id="cevap">
+                                    </div>
+
                                 </div>
 
 
@@ -129,6 +130,8 @@ $("#btn").click(function(){
                     success: function(responseData)
                     {
                       $("#veri").load("islemler.php?islem=goster&id="+id);
+                      $("#cevap").html(responseData);
+                      $("#dataForm").trigger("reset");
                     }
  });
 

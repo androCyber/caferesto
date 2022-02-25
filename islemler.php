@@ -25,15 +25,33 @@ $id=$_GET['id'];
     break;
   
   case "ekle":
-    $masaId=htmlspecialchars($_POST['masaId']);
-    $urunId=htmlspecialchars($_POST['urunId']);
-    $miktar=htmlspecialchars($_POST['miktar']);
-
-              $siparisEkle="Insert into anliksiparis (masaid,urunid,urunad,urunfiyat,miktar) Values ($masaId,$urunId,'Fıstıklı Baklava',120, $miktar)";
-              $siparisEkleRSLT=$db->prepare($siparisEkle);
-              $siparisEkleRSLT->execute();
-              echo "Ekleme Yapıldı";
+        if($_POST):
     
+
+    @$masaId=htmlspecialchars($_POST['masaId']);
+    @$urunId=htmlspecialchars($_POST['urunId']);
+    @$miktar=htmlspecialchars($_POST['miktar']);
+                    /*Ürün bilgileri eksik mi değil mi */
+
+                if($masaId==""||$urunId==""||$miktar==""):
+
+                  echo "Seçtiğiniz ürün bilgilerini kontrol ediniz...";
+
+                else:
+
+                  $siparisEkle="Insert into anliksiparis (masaid,urunid,urunad,urunfiyat,miktar) Values ($masaId,$urunId,'Fıstıklı Baklava',120, $miktar)";
+                  $siparisEkleRSLT=$db->prepare($siparisEkle);
+                  $siparisEkleRSLT->execute();
+                  echo "Ekleme Yapıldı";
+
+                endif;
+
+              
+        else:
+               
+         echo "Yetkisiz bir işlem gerçekleştirdiniz......";
+        
+        endif;
     
     break;
 case "urun":/*Masa detay sayfasında seçilen kategoriye göre ürünler listeleniyor...*/ 
@@ -46,9 +64,9 @@ case "urun":/*Masa detay sayfasında seçilen kategoriye göre ürünler listele
 
     while( $productResult=$queryResult->fetch_assoc()):
 
-      echo "Gelen Ürün Ad : ".$productResult['ad']."</br>";
+      echo '<label class="btn btn-dark m-2"><input name="urunId" type="radio" value="'.$productResult["id"].'"/>'.$productResult["ad"].'</label>';
 
-      echo "Gelen Ürün Fiyat : ".$productResult['fiyat']."</br>";
+     
 
       
      endwhile;
