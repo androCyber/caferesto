@@ -35,11 +35,10 @@ $tInfo=$result->fetch_assoc();
                                 <div class="row">
                                     <div class="col-md-12 border border-bottom border-success bg-success mx-auto p-4 text-center text-white" id="tableInfo" ><?php echo $tInfo['ad']?></div>
                                   <!-- Anlık Sipariş Alanı Başlangıç -->
-                                    <div id="veri">
+                                    <div class="col-md-12" id="veri">
                                     </div>
                                    <!-- Anlık Sipariş Alanı Bitiş -->
-                                   <div id="cevap">
-                                    </div>
+                                  
 
                                 </div>
 
@@ -52,9 +51,11 @@ $tInfo=$result->fetch_assoc();
                                                 <div class="row"><form id="dataForm">
                                                             <div class="col-md-12" id="urunler" style="min-height:600px;">
 
-
-
                                                             </div>
+
+                                                            <div id="cevap">
+                                    </div>
+
 
                                                 </div>
                                                 <div class="row" id="orderBottom">

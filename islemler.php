@@ -18,22 +18,45 @@ function processQuery($db,$query,$option)
 
 
 $islem=$_GET['islem'];
+
 switch ($islem):
+
   case "goster":
+
 $id=$_GET['id'];
+
     $query="Select * From anliksiparis where masaid=$id";
     $queryResult=processQuery($db,$query,1);
 
 
         if ($queryResult->num_rows==0):
-          echo "Henüz sipariş yok.";
+          echo "<div class='alert alert-danger mt-4 text-white text-center'>
+
+          Henüz sipariş yok.</div>";
 
         else:
 
-                  while( $instantOL=$queryResult->fetch_assoc()):
-                   echo '<div class="col-md-12 border border-bottom border-info" >'.$instantOL["id"].'</div>';
-                  endwhile;
+          echo '<table class="table">
+                <thead>
+                <tr>
+                <th scope="col"> Ürün adı</th>
+                <th scope="col"> Miktarı</th>
+                <th scope="col"> Tutar</th>
+                </tr>
+                </thead>
+                <tbody>
           
+          ';
+
+                  while( $instantOL=$queryResult->fetch_assoc()):
+                   echo '<tr>
+                      <td>'.$instantOL['urunad'].'</td>
+                      <td>'.$instantOL['miktar'].'</td>
+                      <td>'.$instantOL['miktar']*$instantOL['urunfiyat'].'</td>
+
+                   </tr>';
+                  endwhile;
+                echo  '</tbody></table>';
         endif;
 
     break;
@@ -49,11 +72,21 @@ $id=$_GET['id'];
 
                 if($masaId==""||$urunId==""||$miktar==""):
 
-                  echo "Seçtiğiniz ürün bilgilerini kontrol ediniz...";
+                  echo "<div class='alert alert-danger mt-4 text-white text-center'>
+
+                  Seçtiğiniz ürün bilgilerini kontrol ediniz...</div>";
 
                 else:
 
-                  $siparisEkle="Insert into anliksiparis (masaid,urunid,urunad,urunfiyat,miktar) Values ($masaId,$urunId,'Fıstıklı Baklava',120, $miktar)";
+
+                  $query="Select * From urunler where id=$urunId";
+                  $queryResult=processQuery($db,$query,1);
+                  $product=$queryResult->fetch_assoc();
+
+                  $productName=$product['ad'];
+                  $productPrice=$product['fiyat'];
+
+                  $siparisEkle="Insert into anliksiparis (masaid,urunid,urunad,urunfiyat,miktar) Values ($masaId,$urunId,'$productName',$productPrice,$miktar)";
                   $siparisEkleRSLT=$db->prepare($siparisEkle);
                   $siparisEkleRSLT->execute();
                   echo "Ekleme Yapıldı";
