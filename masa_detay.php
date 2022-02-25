@@ -11,6 +11,7 @@ $masaDetay = new sistem;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/css/bootsrap.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>CafeResto Projesi</title>
     
     <style>
@@ -29,10 +30,10 @@ $tInfo=$result->fetch_assoc();
 
 ?>
 
-           <div class="row border border-dark" style="min-height:700px;">
-                          <div class="col-md-2 border-right border-dark">
+           <div class="row" id="mainRow">
+                          <div class="col-md-2" id="instantOC">
                                 <div class="row">
-                                    <div class="col-md-12 border border-bottom border-info bg-info mx-auto p-4 text-center" style="min-height:100px"><?php echo $tInfo['ad']?></div>
+                                    <div class="col-md-12 border border-bottom border-success bg-success mx-auto p-4 text-center text-white" id="tableInfo" ><?php echo $tInfo['ad']?></div>
                                   <!-- Anlık Sipariş Alanı Başlangıç -->
                                     <div id="veri">
                                     </div>
@@ -56,7 +57,7 @@ $tInfo=$result->fetch_assoc();
                                                             </div>
 
                                                 </div>
-                                                <div class="row">
+                                                <div class="row" id="orderBottom">
                                                             <div class="col-md-12">
                                                                   <div class="row">
                                                                         <div class="col-md-6" >
@@ -92,7 +93,7 @@ $tInfo=$result->fetch_assoc();
 
                           </div>
                           <!-- KATEGORİLER Başlangıç-->
-                          <div class="col-md-2 border-left" id="categories">
+                          <div class="col-md-2" id="categories">
 
                           <?php $masaDetay->productGroup($db);?>
                               

@@ -1,23 +1,37 @@
-<?php
+<?php session_start();
 $db= new mysqli('localhost','cafeRestoUsr','oJ6Edv9YUD(gy!L/','siparis') or die("Bağlantı Başarısız");
 $db->set_charset("utf8");
+
+function processQuery($db,$query,$option)
+            {
+                    $queryPrep=$db->prepare($query);
+                    $queryPrep->execute();
+                    if($option==1):
+                   return $queryResult= $queryPrep->get_result();
+                   
+                    endif;
+                
+            }
+
+
+
+
 
 $islem=$_GET['islem'];
 switch ($islem):
   case "goster":
 $id=$_GET['id'];
     $query="Select * From anliksiparis where masaid=$id";
-    $queryPrep=$db->prepare($query);
-    $queryPrep->execute();
-    $queryResult= $queryPrep->get_result();
+    $queryResult=processQuery($db,$query,1);
+
 
         if ($queryResult->num_rows==0):
           echo "Henüz sipariş yok.";
 
         else:
 
-                  while( $detaySonuc=$queryResult->fetch_assoc()):
-                   echo '<div class="col-md-12 border border-bottom border-info" >'.$detaySonuc["id"].'</div>';
+                  while( $instantOL=$queryResult->fetch_assoc()):
+                   echo '<div class="col-md-12 border border-bottom border-info" >'.$instantOL["id"].'</div>';
                   endwhile;
           
         endif;
@@ -58,9 +72,9 @@ case "urun":/*Masa detay sayfasında seçilen kategoriye göre ürünler listele
 
     $catid=htmlspecialchars($_GET['catid']);
     $query="Select * From urunler where katid=$catid";
-    $queryPrep=$db->prepare($query);
-    $queryPrep->execute();
-    $queryResult= $queryPrep->get_result();
+    $queryResult=processQuery($db,$query,1);
+
+  
 
     while( $productResult=$queryResult->fetch_assoc()):
 
