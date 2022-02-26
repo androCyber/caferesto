@@ -57,6 +57,18 @@ class sistem {
 
             }
 
+
+            //Masa sayısını veren fonksiyon
+            function siparisToplam($dv){
+
+                
+                echo $this->myQuery($dv,"Select * From anliksiparis",1)->num_rows;
+
+                
+
+            }
+
+
             //Masa Detayını gösteren fonksiyon
 
             function getTDetail($dv,$id){

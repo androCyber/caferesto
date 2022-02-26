@@ -31,7 +31,7 @@ $tInfo=$result->fetch_assoc();
 ?>
 
            <div class="row" id="mainRow">
-                          <div class="col-md-2" id="instantOC">
+                          <div class="col-md-3" id="instantOC">
                                 <div class="row">
                                     <div class="col-md-12 border border-bottom border-success bg-success mx-auto p-4 text-center text-white" id="tableInfo" ><?php echo $tInfo['ad']?></div>
                                   <!-- Anlık Sipariş Alanı Başlangıç -->
@@ -46,7 +46,7 @@ $tInfo=$result->fetch_assoc();
 
                           </div>
 
-                          <div class="col-md-8" style="background-color: #F9F9F9;">
+                          <div class="col-md-7" style="background-color: #F9F9F9;">
                               
                                                 <div class="row"><form id="dataForm">
                                                             <div class="col-md-12" id="urunler" style="min-height:600px;">
@@ -149,10 +149,9 @@ let sectionId=$(this).attr('sectionId');
 $("#urunler").load("islemler.php?islem=urun&catid="+ sectionId).fadeIn();
 
 
+});
+ 
 
-
-
-})
 
 
   </script>
