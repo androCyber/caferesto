@@ -36,7 +36,7 @@ $id=$_GET['id'];
 
         else:
 
-          echo '<table class="table">
+          echo '<table class="table text-center">
                 <thead>
                 <tr>
                 <th scope="col"> Ürün adı</th>
@@ -47,15 +47,25 @@ $id=$_GET['id'];
                 <tbody>
           
           ';
-
+                $sum=0;
                   while( $instantOL=$queryResult->fetch_assoc()):
+                    $tutar=$instantOL['miktar']*$instantOL['urunfiyat'];
                    echo '<tr>
-                      <td>'.$instantOL['urunad'].'</td>
+                      <td class="text-left">'.$instantOL['urunad'].'</td>
                       <td>'.$instantOL['miktar'].'</td>
-                      <td>'.$instantOL['miktar']*$instantOL['urunfiyat'].'</td>
-
+                      <td>'.$tutar.'</td>
+                      
                    </tr>';
+                   $sum+=$tutar;
                   endwhile;
+                  echo '<tr class="table-danger font-weight-bold">
+                  <td>TOPLAM</td>
+                  <td></td>
+                  <td >'.$sum.'</td>
+                  
+
+               </tr>';
+
                 echo  '</tbody></table>';
         endif;
 
