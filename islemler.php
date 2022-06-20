@@ -134,7 +134,7 @@ $id=$_GET['id'];
                   $siparisEkle="Insert into anliksiparis (masaid,urunid,urunad,urunfiyat,miktar) Values ($masaId,$urunId,'$productName',$productPrice,$miktar)";
                   $siparisEkleRSLT=$db->prepare($siparisEkle);
                   $siparisEkleRSLT->execute();
-                  echo "Ekleme Yapıldı";
+                  echo '<div class="alert alert-success">Ekleme Yapıldı</div>';
 
                 endif;
 
@@ -146,13 +146,12 @@ $id=$_GET['id'];
         endif;
     
     break;
+
 case "urun":/*Masa detay sayfasında seçilen kategoriye göre ürünler listeleniyor...*/ 
 
     $catid=htmlspecialchars($_GET['catid']);
     $query="Select * From urunler where katid=$catid";
     $queryResult=processQuery($db,$query,1);
-
-  
 
     while( $productResult=$queryResult->fetch_assoc()):
 

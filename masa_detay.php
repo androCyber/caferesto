@@ -41,6 +41,8 @@ $tInfo=$result->fetch_assoc();
                                   
 
                                 </div>
+                                <div id="cevap">
+                                    </div>
 
 
 
@@ -53,9 +55,7 @@ $tInfo=$result->fetch_assoc();
 
                                                             </div>
 
-                                                            <div id="cevap">
-                                    </div>
-
+                                                            
 
                                                 </div>
                                                 <div class="row" id="orderBottom">
@@ -132,7 +132,7 @@ $("#btn").click(function(){
                     success: function(responseData)
                     {
                       $("#veri").load("islemler.php?islem=goster&id="+id);
-                      $("#cevap").html(responseData);
+                      $("#cevap").html(responseData)
                       $("#dataForm").trigger("reset");
                     }
  });
